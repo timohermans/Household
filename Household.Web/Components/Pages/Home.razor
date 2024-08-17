@@ -1,0 +1,46 @@
+﻿@page "/"
+@attribute [AllowAnonymous]
+@inject NavigationManager Navi
+
+<AuthorizeView>
+    <Authorized>
+        @{
+            Navi.NavigateTo("/rooms");
+        }
+    </Authorized>
+    <NotAuthorized>
+        <section class="flex flex-col justify-center">
+
+            <div class="carousel w-full">
+                <div id="item1" class="carousel-item w-full">
+                    <div class="flex flex-col gap-3">
+                        <h2 class="font-bold text-2xl text-center">Organiseer Je Huishoud Routine</h2>
+                        <img src="https://img.daisyui.com/images/stock/photo-1625726411847-8cbb60cc71e6.webp"
+                            class="w-full" />
+                    </div>
+                </div>
+                <div id="item2" class="carousel-item w-full">
+                    <div class="flex flex-col gap-3">
+                        <h2 class="font-bold text-2xl text-center">Voorgemaakte klusjes zijn meteen beschikbaar</h2>
+                        <img src="https://img.daisyui.com/images/stock/photo-1625726411847-8cbb60cc71e6.webp"
+                            class="w-full" />
+                    </div>
+                </div>
+                <div id="item3" class="carousel-item w-full">
+                    <div class="flex flex-col gap-3">
+                        <h2 class="font-bold text-2xl text-center">Deel schoonmaak taken met je familie</h2>
+                        <img src="https://img.daisyui.com/images/stock/photo-1625726411847-8cbb60cc71e6.webp"
+                            class="w-full" />
+                    </div>
+                </div>
+            </div>
+            <div class="flex w-full justify-center gap-2 py-2">
+                <a href="#item1" class="btn btn-xs">1</a>
+                <a href="#item2" class="btn btn-xs">2</a>
+                <a href="#item3" class="btn btn-xs">3</a>
+            </div>
+
+            <NavLink class="btn btn-secondary" href="/authentication/login">Log in of registreer</NavLink>
+        </section>
+    </NotAuthorized>
+</AuthorizeView>

@@ -1,0 +1,27 @@
+<AuthorizeView>
+  <Authorized>
+    <div class="hidden sm:flex navbar bg-base-200 shadow-xl rounded-box ">
+      <div class="navbar-start">
+        <a class="btn btn-ghost text-xl">Huishouden</a>
+      </div>
+      <div class="navbar-center flex">
+        <ul class="menu menu-horizontal px-1">
+          <li><a>Mijn huis</a></li>
+          <li><a>Schema</a></li>
+          <li><a>Instellingen</a></li>
+        </ul>
+      </div>
+      <div class="navbar-end">
+        <div class="dropdown dropdown-end">
+          <div tabindex="0" role="button" class="btn btn-circle btn-ghost rounded-btn">
+            <UserIcon />
+          </div>
+          <ul tabindex="0" class="menu dropdown-content bg-base-100 rounded-box z-[1] mt-4 w-52 p-2 shadow">
+            <li><button type="button" class="btn btn-ghost">@authenticationState.User.Identity?.Name</button></li>
+            <li><a href="/authentication/logout">Log uit</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </Authorized>
+</AuthorizeView>
