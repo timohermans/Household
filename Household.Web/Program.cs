@@ -1,6 +1,8 @@
 using Household.Web.Components;
+using Household.Web.Data;
 using Household.Web.Server;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.EntityFrameworkCore;
 using System.IdentityModel.Tokens.Jwt;
 
 const string OidcScheme = "keycloak";
@@ -10,6 +12,9 @@ var config = builder.Configuration;
 var services = builder.Services;
 
 // Add services to the container.
+services.AddDbContextFactory<DataContext>(
+    options => options.UseNpgsql(config.GetConnectionString("Default")));
+
 services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
